@@ -1,0 +1,1 @@
+pygomas manager -np 8 -j manager_zhuwan@gtirouter.dsic.upv.es -sj service_zhuwan@gtirouter.dsic.upv.es -m map_arena  

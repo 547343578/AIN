@@ -1,0 +1,21 @@
+{
+    "host": "gtirouter.dsic.upv.es",
+    "manager": "zhuwan_manager",
+    "service": "zhuwan_service",
+    "axis": [
+        {
+            "rank": "BDISoldier",
+            "name": "medic_axis_zhuwan",
+            "password": "secret",
+			"amount": 4
+        }
+    ],
+    "allied": [
+        {
+            "rank": "BDISoldier",
+            "name": "soldier_allied_zhuwan",
+            "password": "secret",
+            "amount": 4
+        }
+    ]
+}
