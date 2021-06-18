@@ -1,0 +1,36 @@
+{
+    "host": "gtirouter.dsic.upv.es",
+    "manager": "manager_zhuwan",
+    "manager_password": "secret",
+    "service": "service_zhuwan",
+    "service_password": "secret",
+    "axis": [
+		{
+            "rank": "squardSoldier.SquardSoldier",
+            "name": "axis_zhuwan",
+            "password": "secret",
+            "amount": 5,
+            "asl": "zhuwan_soldier.asl"
+        },
+        {
+            "rank": "squardMedic.SquardMedic",
+            "name": "medic_axis_zhuwan",
+            "password": "secret",
+			"amount": 2,
+            "asl": "zhuwan_medic.asl"
+        },
+		{
+            "rank": "squardFieldop.SquardFieldop",
+            "name": "fieldop_axis_zhuwan",
+            "password": "secret",
+			"amount": 2,
+            "asl": "zhuwan_fieldop.asl"
+        },
+		{
+            "rank": "squardGeneral.SquardGeneral",
+            "name": "general_axis_zhuwan",
+            "password": "secret",
+            "asl": "zhuwan_general.asl"
+        }
+    ]
+  }

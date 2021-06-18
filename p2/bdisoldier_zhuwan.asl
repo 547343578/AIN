@@ -1,3 +1,4 @@
+/*
 Estrategia: 
 
 Agente agresivo que va al centro de mapa desde principio, una vez ya esta en el centro
@@ -6,7 +7,7 @@ menor health que el, le persigue y le dispara, en el caso contrario, es decir si
 a un enemigo que tiene el health superior que el, se va al centro otra vez y se queda 
 alli girando. Ademas, recoge todos los paquetes que pueda, para siempre tener un health 
 y ammo conveniente.
-
+*/
 
 /* CREENCIAS INICIALES */
 
@@ -17,6 +18,8 @@ centro([130, 0, 130]).
 
 +flag(F): team(200)
     <-
+	+mirando([[0,0,0],[250,0,0],[250,0,250],[0,0,250]]);
+	+estado(0);
 	!irAlCentro.
 
 
@@ -41,7 +44,7 @@ centro([130, 0, 130]).
 
 +friends_in_fov(ID, Type, Angle, Distance, Health, Position): health(H) & (H < Health | ammo(A) & A <= 0)
     <-
-	.shoot(3,Position);
+	.shoot(9,Position);
 	!irAlCentro.
 	
 	
@@ -69,6 +72,7 @@ centro([130, 0, 130]).
 +target_reached(T): paquete(P) & P==T
     <-
 	-paquete(P);
+	.print("Cojo el paquete");
 	!irAlCentro;
 	-target_reached(T).
 
@@ -91,19 +95,26 @@ centro([130, 0, 130]).
 	.goto(Pos).
 
 
-+!girarCentro: girandoCentro
-    <-
-	.turn(0.52);
-	.wait(1000);
-	!girarCentro.
-	
-	
++!girarCentro: girandoCentro & estado(E) & E<4
+ <-
+ +girandoCentro;
+ ?mirando(L);
+ .nth(E, L, P);
+ .look_at(P);
+ .wait(1000);
+ -estado(_);
+ +estado(E+1);
+ !girarCentro.
+ 
+ 
++!girarCentro: griandoCentro & estado(E) & E=4
+ <-
+ -estado(_);
+ +estado(0);
+ !girarCentro.
+ 
+
 +!girarCentro.
-	/*
-	<-
-	+girandoCentro;
-	!girarCentro.
-	*/
 
 
 +!irAPorPaquete(Position): true
